@@ -12,7 +12,7 @@ if __name__ == '__main__':
 	pygame.init()
 	screen = pygame.display.set_mode((200, 200), 0, 32)
 	pygame.display.set_caption("Game of life!")
-	x = [[True for i in range(10)] for j in range(10)]
+	x = [[random.choice((True,False)) for i in range(10)] for j in range(10)]
 	a = Arena(0,4,3,x)
 	val = None
 	counter = 0
@@ -21,7 +21,7 @@ if __name__ == '__main__':
 			if event.type == QUIT:
 				exit()	
 		
-		val = a.run(199)
+		val = a.run(1)
 		a.grid = val
 		counter += 1
 		for i in  range(a.x):
@@ -30,5 +30,5 @@ if __name__ == '__main__':
 					pygame.draw.rect(screen, BLUE, (i * 10 ,j * 10,  (i +1) * 10, (j+1) * 10))
 				else:
 					pygame.draw.rect(screen, BLACK, (i * 10 ,j * 10, (i+1) * 10, (j +1) *10))
-				sleep(1)
+				sleep(0.1)
 				pygame.display.update()
