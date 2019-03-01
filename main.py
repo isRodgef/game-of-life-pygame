@@ -3,7 +3,7 @@ import pygame
 from pygame.locals import *
 from sys import exit
 import random
-
+from time import sleep
 
 if __name__ == '__main__':
 	RED = (0xff,0,0)
@@ -21,10 +21,7 @@ if __name__ == '__main__':
 			if event.type == QUIT:
 				exit()	
 		
-		if val == a.grid:
-			print (counter)
-			break
-		val = a.run()
+		val = a.run(199)
 		a.grid = val
 		counter += 1
 		for i in  range(a.x):
@@ -33,4 +30,5 @@ if __name__ == '__main__':
 					pygame.draw.rect(screen, BLUE, (i * 10 ,j * 10,  (i +1) * 10, (j+1) * 10))
 				else:
 					pygame.draw.rect(screen, BLACK, (i * 10 ,j * 10, (i+1) * 10, (j +1) *10))
-		pygame.display.update()
+				sleep(1)
+				pygame.display.update()
